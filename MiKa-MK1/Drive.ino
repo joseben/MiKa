@@ -7,7 +7,7 @@
 #define dir3 7
 #define dir4 9
 
-void setup() {
+void setup_drive() {
   // put your setup code here, to run once:
   pinMode(pwm1,OUTPUT);
   pinMode(pwm2,OUTPUT);
@@ -20,13 +20,7 @@ void setup() {
 
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-
-
-}
-
-void forward(){
+void Drive_forward(){
   digitalWrite(dir1,HIGH);
   digitalWrite(dir2,HIGH);
   digitalWrite(dir3,HIGH);
@@ -37,7 +31,7 @@ void forward(){
   analogWrite(pwm4,50);
 }
 
-void backward(){
+void Drive_backward(){
   digitalWrite(dir1,LOW);
   digitalWrite(dir2,LOW);
   digitalWrite(dir3,LOW);
@@ -47,7 +41,7 @@ void backward(){
   analogWrite(pwm3,50);
   analogWrite(pwm4,50);
 }
-void right(){
+void Drive_right(){
   digitalWrite(dir1,HIGH);
   digitalWrite(dir2,HIGH);
   digitalWrite(dir3,LOW);
@@ -57,7 +51,7 @@ void right(){
   analogWrite(pwm3,50);
   analogWrite(pwm4,50);
 }
-void left(){
+void Drive_left(){
   digitalWrite(dir1,LOW);
   digitalWrite(dir2,LOW);
   digitalWrite(dir3,HIGH);
@@ -67,7 +61,7 @@ void left(){
   analogWrite(pwm3,50);
   analogWrite(pwm4,50);
 }
-void stop(){
+void Drive_stop(){
   int i=50;
     for(i-50;i>=0;i--){
       analogWrite(pwm1,i);

@@ -1,10 +1,17 @@
 #define ENCODEROUTPUT 120
 
-#define BUTTON 2 // Maker UNO built-in button connected to pin 2
-#define HALLSEN_A 3 // Hall sensor A connected to pin 3 (external interrupt)
+#define HALLSEN_B 18
+#define HALLSEN_A 16 
+#define HALLSEN_C 17
+#define HALLSEN_D 19 
+
+// Hall sensor A connected to pin 3 (external interrupt)
 
 
-volatile long encoderValue = 0;
+volatile long encoderValue_1 = 0;
+volatile long encoderValue_2 = 0;
+volatile long encoderValue_3 = 0;
+volatile long encoderValue_4 = 0;
 
 int interval = 1000;
 long previousMillis = 0;
@@ -14,27 +21,32 @@ int rpm = 0;
 boolean measureRpm = false;
 int motorPwm = 0;
 
-void setup()
+void setup_encoder()
 {
   Serial.begin(9600); // Initialize serial with 9600 baudrate
 
-  pinMode(BUTTON, INPUT_PULLUP); // Set button as input pullup
   pinMode(HALLSEN_A, INPUT_PULLUP); // Set hall sensor A as input pullup
+  pinMode(HALLSEN_B, INPUT_PULLUP); // Set hall sensor A as input pullup
+  pinMode(HALLSEN_C, INPUT_PULLUP); // Set hall sensor A as input pullup
+  pinMode(HALLSEN_D, INPUT_PULLUP); // Set hall sensor A as input pullup
  
   // Attach interrupt at hall sensor A on each rising signal
-  attachInterrupt(digitalPinToInterrupt(HALLSEN_A), updateEncoder, RISING);
+  attachInterrupt(digitalPinToInterrupt(HALLSEN_A), updateEncoder_1, RISING);
+  attachInterrupt(digitalPinToInterrupt(HALLSEN_B), updateEncoder_2, RISING);
+  attachInterrupt(digitalPinToInterrupt(HALLSEN_C), updateEncoder_3, RISING);
+  attachInterrupt(digitalPinToInterrupt(HALLSEN_D), updateEncoder_4, RISING);
 
-  Serial.print("\n\n");
-  Serial.println("Measuring DC Motor's RPM");
-  Serial.println("Press Maker UNO button to begin.");
-  Serial.println("Press again to stop.");
 }
 
-void loop()
+/*void loop()
 {
-    Serial.print(rpmcalc());
+    Serial.print(rpmcalc(encoderValue_1));//rpmcalc(value) function will give each rpm int value
+    d
+    elay(1000);    
 }
-int rpmcalc(){
+*/
+
+int rpmcalc(long encoderValue){
     previousMillis = millis();
 
   // Update RPM value on every second
@@ -60,9 +72,28 @@ int rpmcalc(){
   }
   return rpm;
 }
-void updateEncoder()
+void updateEncoder_1()
 {
   // Add encoderValue by 1, each time it detects rising signal
   // from hall sensor A
-  encoderValue++;
+  encoderValue_1++;
+}
+void updateEncoder_2()
+{
+  // Add encoderValue by 1, each time it detects rising signal
+  // from hall sensor A
+  encoderValue_2++;
+}
+
+void updateEncoder_3()
+{
+  // Add encoderValue by 1, each time it detects rising signal
+  // from hall sensor A
+  encoderValue++_3;
+}
+void updateEncoder_4()
+{
+  // Add encoderValue by 1, each time it detects rising signal
+  // from hall sensor A
+  encoderValue++_4;
 }

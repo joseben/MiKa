@@ -14,7 +14,7 @@ NewPing sonar[SONAR_NUM] = {     // Sensor object array.
   NewPing(22, 24, MAX_DISTANCE), // Each sensor's trigger pin, echo pin, and max distance to ping.
   NewPing(26, 28, MAX_DISTANCE),
   NewPing(30, 32, MAX_DISTANCE),
-  NewPing(34, 36, MAX_DISTANCE),
+  NewPing(38, 40, MAX_DISTANCE),
   //NewPing(38, 40, MAX_DISTANCE),
   //NewPing(42, 44, MAX_DISTANCE)  
 };
