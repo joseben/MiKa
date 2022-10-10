@@ -106,56 +106,56 @@ void messageCb(const std_msgs::Int32 & arm_msg){
     digitalWrite(LED_BUILTIN,LOW);
     neck_rest();
   }
-     else if (arm_msg.data==8)//left gripper open
+     else if (arm_msg.data==9)//left gripper open
   {
   
     digitalWrite(LED_BUILTIN,LOW);
     left_open_hand();
-  }   else if (arm_msg.data==8)//left gripper close
+  }   else if (arm_msg.data==10)//left gripper close
   {
   
     digitalWrite(LED_BUILTIN,LOW);
     left_close_hand();
-  }   else if (arm_msg.data==8)//right gripper open
+  }   else if (arm_msg.data==11)//right gripper open
   {
   
     digitalWrite(LED_BUILTIN,LOW);
     right_open_hand();
-  }   else if (arm_msg.data==8)//right gripper close
+  }   else if (arm_msg.data==12)//right gripper close
   {
   
     digitalWrite(LED_BUILTIN,LOW);
     right_close_hand();
   }
-     else if (arm_msg.data==8)//left turn hip
+     else if (arm_msg.data==13)//left turn hip
   {
   
     digitalWrite(LED_BUILTIN,LOW);
     hip_turn_left();
-  }   else if (arm_msg.data==8)//right turn hip
+  }   else if (arm_msg.data==14)//right turn hip
   {
   
     digitalWrite(LED_BUILTIN,LOW);
     hip_turn_right();
   }  
-  else if (arm_msg.data==8)// hip rest
+  else if (arm_msg.data==15)// hip rest
   {
   
     digitalWrite(LED_BUILTIN,LOW);
     hip_rest();
   } 
-  else if (arm_msg.data==8)//left waist up
+  else if (arm_msg.data==16)//left waist up
   {
   
     digitalWrite(LED_BUILTIN,LOW);
     waist_left_up();
-  }   else if (arm_msg.data==8)//right waist up
+  }   else if (arm_msg.data==17)//right waist up
   {
   
     digitalWrite(LED_BUILTIN,LOW);
     waist_right_up();
   }
-   else if (arm_msg.data==8)//waist rest
+   else if (arm_msg.data==18)//waist rest
   {
   
     digitalWrite(LED_BUILTIN,LOW);
