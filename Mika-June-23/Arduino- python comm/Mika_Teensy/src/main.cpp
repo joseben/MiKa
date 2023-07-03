@@ -5,7 +5,7 @@
 #include <HandWave.h>
 #include <danceSeq.h>
 #include <flower.h>
-
+#include <detach.h>
 
 
 void setup()
@@ -29,6 +29,8 @@ void loop()
       {
         case 'A':  
                   action();
+                  delay(1000);
+                  detach_servo();
                   break;
 
         case 'B':  
@@ -53,37 +55,54 @@ void loop()
 
         case 'G':  
                   namasthe(); //it will reset itself after 7seconds
+                  delay(1000);
+                  detach_servo();
                   break;
 
         case 'H':  
                   namastheReset(); 
+                  delay(1000);
+                  detach_servo();
                   break;
 
         case 'I':  
                   handWave(); // it will reset itself
+                  delay(1000);
+                  detach_servo();
                   break;
 
         case 'J':  
                   waveReset();
+                  delay(1000);
+                  detach_servo();
                   break;
         case 'K':  
                   seq1();
+                  delay(1000);
+                  detach_servo();
                   break;
 
         case 'L':  
                   seq2();
+                  delay(1000);
+                  detach_servo();
                   break;
 
         case 'M':  
                   flower();
+                  delay(1000);
+                  detach_servo();
                   break;
 
         default:
                   action();
-                   break;
+                  delay(1000);
+                  detach_servo();
+                  break;
       }//end of switch()
+    
 
-    Serial.print(RxedByte);
+    Serial.print(RxedByte); 
 
     }//endof if 
 }
